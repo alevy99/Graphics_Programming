@@ -58,7 +58,8 @@
       
       // x-axis moved to the bottom
       g.append("g")
-        .attr("class", "x-axis")        
+        .attr("class", "x-axis")
+        .attr("transform", `translate(0,${height})`)
         .call(xAxis);
 
       // y-axis on the left (default position)
