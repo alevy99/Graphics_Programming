@@ -59,6 +59,10 @@
       // Axes (with a set number of ticks) and line generator
       const xAxis = d3.axisBottom(xScale).ticks(10);
       const yAxis = d3.axisLeft(yScale).ticks(8);
+
+      const line = d3.line()
+        .x(d => xScale(d.years_before_2023))
+        .y(d => yScale(d.co2_ppmv));
       
       // x-axis moved to the bottom
       g.append("g")
