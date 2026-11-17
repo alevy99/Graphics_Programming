@@ -125,9 +125,10 @@
 
       const yAxisTemp = d3.axisRight(yScaleTemp).ticks(8);
 
-      // y-axis on the left (default position)
+      // y-axis on the right
       g.append("g")
         .attr("class", "y-axis-right")
+        .attr("transform", `translate(${width},0)`)
         .call(yAxisTemp);   
 
       const yScaleMethane = d3.scaleLinear()
