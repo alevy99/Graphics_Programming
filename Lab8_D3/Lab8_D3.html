@@ -32,6 +32,19 @@
       const height = 520 - margin.top - margin.bottom;
 
 
+      // Scales
+      // x: years ago (oldest on the left, 0 = 2023 on the right)
+      const xScale = d3.scaleLinear()
+        .domain([d3.max(data, d => d.years_before_2023), 0])
+        .range([0, width]);
+
+      // console.log(xScale(400000));
+
+      // y: CO2 in ppm
+      const yScale = d3.scaleLinear()
+        .domain([d3.min(data, d => d.co2_ppmv), d3.max(data, d => d.co2_ppmv)])
+        .range([height, 0]);
+
     }
 
 
