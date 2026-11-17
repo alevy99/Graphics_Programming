@@ -113,6 +113,11 @@
         .attr("fill", "none")
         .attr("stroke", "green")
         .attr("stroke-width", 2);
+
+      // y-axis on the left (default position)
+      g.append("g")
+        .attr("class", "y-axis-right")
+        .call(yAxisTemp);   
     }
 
 
