@@ -97,6 +97,22 @@
         .attr("text-anchor", "middle")
         .text("Atmospheric CO2 over time");
 
+
+        // y: Temp anomaly
+      const yScaleTemp = d3.scaleLinear()
+        .domain([d3.min(data, d => d.temp_anomaly), d3.max(data, d => d.temp_anomaly)])
+        .nice()
+        .range([height, 0]);
+
+      const lineTemp = d3.line()
+        .x(d => xScale(d.years_before_2023))
+        .y(d => yScaleTemp(d.temp_anomaly));  
+
+      g.append("path")
+        .attr("d", lineTemp(data))
+        .attr("fill", "none")
+        .attr("stroke", "green")
+        .attr("stroke-width", 2);
     }
 
 
