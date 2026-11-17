@@ -55,6 +55,10 @@
       const g = svg.append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
+
+      // Axes (with a set number of ticks) and line generator
+      const xAxis = d3.axisBottom(xScale).ticks(10);
+      const yAxis = d3.axisLeft(yScale).ticks(8);
       
       // x-axis moved to the bottom
       g.append("g")
