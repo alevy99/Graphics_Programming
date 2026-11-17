@@ -55,6 +55,17 @@
       const g = svg.append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
+      
+      // x-axis moved to the bottom
+      g.append("g")
+        .attr("class", "x-axis")        
+        .call(xAxis);
+
+      // y-axis on the left (default position)
+      g.append("g")
+        .attr("class", "y-axis")
+        .call(yAxis);   
+
     }
 
 
