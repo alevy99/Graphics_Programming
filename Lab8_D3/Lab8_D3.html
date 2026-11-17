@@ -69,7 +69,10 @@
 
       // Line: no fill, red stroke 
       g.append("path")
-        .attr("d", line(data));
+        .attr("d", line(data))
+        .attr("fill", "none")
+        .attr("stroke", "red")
+        .attr("stroke-width", 2);
 
       // Labels
       g.append("text")                       // x-axis label
