@@ -113,6 +113,7 @@
         .range([height, 0]);
 
       const lineTemp = d3.line()
+        .defined(d => d.temp_anomaly != null && !isNaN(d.temp_anomaly)) // Remove null or NaN values
         .x(d => xScale(d.years_before_2023))
         .y(d => yScaleTemp(d.temp_anomaly));  
 
