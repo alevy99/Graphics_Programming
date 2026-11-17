@@ -45,6 +45,16 @@
         .domain([d3.min(data, d => d.co2_ppmv), d3.max(data, d => d.co2_ppmv)])
         .range([height, 0]);
 
+      // Add svg element to the body
+      const svg = d3.select("body")
+        .append("svg")
+        .attr("width",  width  + margin.left + margin.right)
+        .attr("height", height + margin.top  + margin.bottom);
+
+      // Add group for svg
+      const g = svg.append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
     }
 
 
