@@ -11,6 +11,24 @@
   
   <h1>Andrei Levchenko</h1>
 
-  
+  <script>
+    // CORS fix for Chrome
+    // https://tinyurl.com/k4chnujx - can't load JSON error
+    const url = "https://raw.githubusercontent.com/humphs078/programming_for_data_analysis_assignment_2/refs/heads/main/datasets/fused_datasets/json/long_term_fused_data.json";
+
+    d3.json(url)
+      .then(function (data) {
+        console.log(data);        // make sure its downloaded correctly
+        plotCO2Data(data);        // plot the data as a graph
+      });
+
+    // Plot function for CO2 data
+    function plotCO2Data(data) {
+      console.log("Starting to plot CO2 data...");
+
+    }
+
+
+  </script>
 </body>
 </html>
