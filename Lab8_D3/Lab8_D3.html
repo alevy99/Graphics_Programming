@@ -67,6 +67,10 @@
         .attr("class", "y-axis")
         .call(yAxis);   
 
+      // Line: no fill, red stroke 
+      g.append("path")
+        .attr("d", line(data));
+
     }
 
 
