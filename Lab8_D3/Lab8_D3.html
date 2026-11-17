@@ -27,9 +27,9 @@
       console.log("Starting to plot CO2 data...");
 
       // SVG size and margins
-      const margin = { top: 50, right: 50, bottom: 50, left: 50 };
-      const width  = 960 - margin.left - margin.right;
-      const height = 520 - margin.top - margin.bottom;
+      const margin = { top: 50, right: 80, bottom: 80, left: 80 };
+      const width  = 1060 - margin.left - margin.right;
+      const height = 620 - margin.top - margin.bottom;
 
 
       // Scales
@@ -106,7 +106,7 @@
         .text("Atmospheric CO2 over time");
 
 
-        // y: Temp anomaly
+      // y: Temp anomaly
       const yScaleTemp = d3.scaleLinear()
         .domain([d3.min(data, d => d.temp_anomaly), d3.max(data, d => d.temp_anomaly)])
         .nice()
@@ -143,14 +143,23 @@
       // console.log(data[d3.maxIndex(data, d => d.temp_anomaly)].years_before_2023);
 
       const lineMethane = d3.line()
+        .defined(d => d.ch4_ppb != null && !isNaN(d.ch4_ppb))
         .x(d => xScale(d.years_before_2023))
         .y(d => yScaleMethane(d.ch4_ppb)); 
         
-      g.append("path")
-        .attr("d", lineMethane(data))
-        .attr("fill", "none")
-        .attr("stroke", "orange")
-        .attr("stroke-width", 2);
+      // g.append("path")
+      //   .attr("d", lineMethane(data))
+      //   .attr("fill", "none")
+      //   .attr("stroke", "orange")
+      //   .attr("stroke-width", 2);
+
+      g.append("text")                       // y-axis right label
+        .attr("class", "axis-label")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -height / 2)
+        .attr("y", width + 55) // Position the label to the right of the chart
+        .attr("text-anchor", "middle")
+        .text("Temp anomaly (C)");
 
       const yAxisMethane = d3.axisRight(yScaleMethane).ticks(8);
     }
