@@ -71,6 +71,29 @@
       g.append("path")
         .attr("d", line(data));
 
+      // Labels
+      g.append("text")                       // x-axis label
+        .attr("class", "axis-label")
+        .attr("x", width / 2)
+        .attr("y", height + 50)
+        .attr("text-anchor", "middle")
+        .text("Years ago (before 2023)");
+
+      g.append("text")                       // y-axis label
+        .attr("class", "axis-label")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -height / 2)
+        .attr("y", -55)
+        .attr("text-anchor", "middle")
+        .text("CO2 concentration (ppm)");
+
+      g.append("text")                       // chart title
+        .attr("class", "chart-title")
+        .attr("x", width / 2)
+        .attr("y", -25)
+        .attr("text-anchor", "middle")
+        .text("Atmospheric CO2 over time");
+
     }
 
 
