@@ -102,6 +102,7 @@
         .attr("x", -height / 2)
         .attr("y", -55)
         .attr("text-anchor", "middle")
+        .attr("fill", "red") // Set the color to red for CO2
         .text("CO2 concentration (ppm)");
 
       g.append("text")                       // chart title
@@ -136,7 +137,7 @@
       g.append("g")
         .attr("class", "y-axis-right")
         .attr("transform", `translate(${width},0)`)
-        .call(yAxisTemp);   
+        .call(yAxisTemp);      
 
       const yScaleMethane = d3.scaleLinear()
         .domain([d3.min(data, d => d.ch4_ppb), d3.max(data, d => d.ch4_ppb)])
@@ -172,6 +173,7 @@
         .attr("x", -height / 2)
         .attr("y", width + 55) // Position the label to the right of the chart
         .attr("text-anchor", "middle")
+        .attr("fill", "green") // Set the color to green for Temp anomaly
         .text("Temp anomaly (C)");
 
       g.append("text")                       // y-axis right label
@@ -183,6 +185,7 @@
         .attr("fill", "orange") // Set the color to orange for Methane
         .text("Methane (ppb)");
 
+    
     }
 
 
