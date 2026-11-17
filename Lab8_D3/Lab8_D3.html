@@ -116,11 +116,33 @@
 
 
       const yAxisTemp = d3.axisRight(yScaleTemp).ticks(8);
-        
+
       // y-axis on the left (default position)
       g.append("g")
         .attr("class", "y-axis-right")
         .call(yAxisTemp);   
+
+      const yScaleMethane = d3.scaleLinear()
+        .domain([d3.min(data, d => d.ch4_ppb), d3.max(data, d => d.ch4_ppb)])
+        .nice()
+        .range([height, 0]);
+
+      // console.log(d3.min(data, d => d.temp_anomaly));
+      // console.log(data[d3.minIndex(data, d => d.temp_anomaly)].years_before_2023);
+      // console.log(d3.max(data, d => d.temp_anomaly));
+      // console.log(data[d3.maxIndex(data, d => d.temp_anomaly)].years_before_2023);
+
+      const lineMethane = d3.line()
+        .x(d => xScale(d.years_before_2023))
+        .y(d => yScaleMethane(d.ch4_ppb)); 
+        
+      g.append("path")
+        .attr("d", lineMethane(data))
+        .attr("fill", "none")
+        .attr("stroke", "orange")
+        .attr("stroke-width", 2);
+
+      const yAxisMethane = d3.axisRight(yScaleMethane).ticks(8);
     }
 
 
