@@ -15,8 +15,8 @@ else:
     # Display the image in a window
     # cv2.imshow('ATU Grayscale Image', gray_image)
     
-    nrows = 1
-    ncols = 2
+    nrows = 2
+    ncols = 3
     plt.subplot(nrows, ncols,1),plt.imshow(imgOrig, cmap = 'gray')
     plt.title('Original'), plt.xticks([]), plt.yticks([])
     plt.subplot(nrows, ncols,2),plt.imshow(imgGray, cmap = 'gray')
