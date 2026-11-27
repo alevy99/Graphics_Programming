@@ -54,6 +54,8 @@ plt.title('Sobel vertical'), plt.xticks([]), plt.yticks([])
 plt.subplot(nrows, ncols,9),plt.imshow(sobelTotal, cmap = 'gray')
 plt.title('Sobel total'), plt.xticks([]), plt.yticks([])
 
+sobelTotal = cv2.convertScaleAbs(sobelTotal)
+
 # Save the grayscale image
 #cv2.imwrite('ATU_grayscale.jpg', gray_image)
 
