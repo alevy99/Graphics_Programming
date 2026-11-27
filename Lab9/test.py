@@ -26,6 +26,18 @@ else:
     imgOut3 = cv2.GaussianBlur(imgGray,(3, 3),0)
     plt.subplot(nrows, ncols,3),plt.imshow(imgOut3, cmap = 'gray')
     plt.title('Kernel 3x3'), plt.xticks([]), plt.yticks([])
+    
+    imgOut5 = cv2.GaussianBlur(imgGray,(5, 5),0)
+    plt.subplot(nrows, ncols,4),plt.imshow(imgOut5, cmap = 'gray')
+    plt.title('Kernel 5x5'), plt.xticks([]), plt.yticks([])
+
+    imgOut9 = cv2.GaussianBlur(imgGray,(9, 9),0)
+    plt.subplot(nrows, ncols,5),plt.imshow(imgOut9, cmap = 'gray')
+    plt.title('Kernel 9x9'), plt.xticks([]), plt.yticks([])
+
+    imgOut13 = cv2.GaussianBlur(imgGray,(13, 13),0)
+    plt.subplot(nrows, ncols,6),plt.imshow(imgOut13, cmap = 'gray')
+    plt.title('Kernel 13x13'), plt.xticks([]), plt.yticks([])
 
     # Save the grayscale image
     #cv2.imwrite('ATU_grayscale.jpg', gray_image)
