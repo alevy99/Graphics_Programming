@@ -14,7 +14,7 @@ imgGray = cv2.cvtColor(imgOrig, cv2.COLOR_BGR2GRAY)
 # Display the image in a window
 # cv2.imshow('ATU Grayscale Image', gray_image)
 
-nrows = 2
+nrows = 3
 ncols = 3
 plt.subplot(nrows, ncols,1),plt.imshow(imgOrig, cmap = 'gray')
 plt.title('Original'), plt.xticks([]), plt.yticks([])
