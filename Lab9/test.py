@@ -45,6 +45,15 @@ else:
     sobelVertical = cv2.Sobel(imgForSobel,cv2.CV_64F,0,1,ksize=5) # y dir
     
     sobelTotal = sobelHorizontal + sobelVertical
+    
+    plt.subplot(nrows, ncols,7),plt.imshow(sobelHorizontal, cmap = 'gray')
+    plt.title('Sobel horizontal'), plt.xticks([]), plt.yticks([])
+
+    plt.subplot(nrows, ncols,8),plt.imshow(sobelVertical, cmap = 'gray')
+    plt.title('Sobel vertical'), plt.xticks([]), plt.yticks([])
+
+    plt.subplot(nrows, ncols,9),plt.imshow(sobelTotal, cmap = 'gray')
+    plt.title('Sobel total'), plt.xticks([]), plt.yticks([])
 
     # Save the grayscale image
     #cv2.imwrite('ATU_grayscale.jpg', gray_image)
