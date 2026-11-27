@@ -56,12 +56,31 @@ plt.title('Sobel total'), plt.xticks([]), plt.yticks([])
 
 sobelTotal = cv2.convertScaleAbs(sobelTotal)
 
+canny100 = cv2.Canny(sobelTotal,100,200)
+
+
+canny500 = cv2.Canny(sobelTotal,500,1000)
+
+
+canny600 = cv2.Canny(sobelTotal,600,1200)
+
+plt.subplot(nrows, ncols,10),plt.imshow(canny100, cmap = 'gray')
+plt.title('canny 100'), plt.xticks([]), plt.yticks([])
+
+plt.subplot(nrows, ncols,11),plt.imshow(canny500, cmap = 'gray')
+plt.title('canny 500'), plt.xticks([]), plt.yticks([])
+
+plt.subplot(nrows, ncols,12),plt.imshow(canny600, cmap = 'gray')
+plt.title('canny 600'), plt.xticks([]), plt.yticks([])
+
+plt.show()
+
 # Save the grayscale image
 #cv2.imwrite('ATU_grayscale.jpg', gray_image)
 
 # Wait for a key press before closing
 cv2.waitKey(0)
-cv2.destroyAllWindows()
+#cv2.destroyAllWindows()
 
 print("Grayscale image saved successfully!")
 
