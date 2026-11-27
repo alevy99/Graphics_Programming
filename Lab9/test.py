@@ -43,6 +43,8 @@ else:
 
     sobelHorizontal = cv2.Sobel(imgForSobel,cv2.CV_64F,1,0,ksize=5) # x dir
     sobelVertical = cv2.Sobel(imgForSobel,cv2.CV_64F,0,1,ksize=5) # y dir
+    
+    sobelTotal = sobelHorizontal + sobelVertical
 
     # Save the grayscale image
     #cv2.imwrite('ATU_grayscale.jpg', gray_image)
