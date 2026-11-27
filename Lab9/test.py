@@ -38,6 +38,11 @@ else:
     imgOut13 = cv2.GaussianBlur(imgGray,(13, 13),0)
     plt.subplot(nrows, ncols,6),plt.imshow(imgOut13, cmap = 'gray')
     plt.title('Kernel 13x13'), plt.xticks([]), plt.yticks([])
+    
+    imgForSobel = imgOut9
+
+    sobelHorizontal = cv2.Sobel(imgForSobel,cv2.CV_64F,1,0,ksize=5) # x dir
+    sobelVertical = cv2.Sobel(imgForSobel,cv2.CV_64F,0,1,ksize=5) # y dir
 
     # Save the grayscale image
     #cv2.imwrite('ATU_grayscale.jpg', gray_image)
